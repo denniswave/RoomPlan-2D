@@ -11,7 +11,9 @@ import SwiftUI
 struct RoomPlan_2DApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                WelcomeView()
+            }
         }
     }
 }
