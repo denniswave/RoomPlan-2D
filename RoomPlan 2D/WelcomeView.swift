@@ -17,7 +17,7 @@ struct WelcomeView: View {
             Text("RoomPlan 2D")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .fontWeight(.bold)
-            Text("Scan your room and create a 2D map.")
+            Text("Scan your room and create a 2D floor plan.")
             
             Spacer()
                 .frame(height: 50)

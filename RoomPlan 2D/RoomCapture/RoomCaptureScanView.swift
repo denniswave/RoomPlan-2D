@@ -6,44 +6,40 @@
 //
 
 import SwiftUI
+import _SpriteKit_SwiftUI
 
 struct RoomCaptureScanView: View {
-    // MARK: - Environment
-    @Environment(\.dismiss) var dismiss
-    
     // MARK: - Properties & State
-    private var model = RoomCaptureModel.shared
+    private let model = RoomCaptureModel.shared
     
     @State private var isScanning = false
     
     // MARK: - View Body
     var body: some View {
-        NavigationStack {
-            ZStack {
-                // The RoomCaptureView
-                RoomCaptureRepresentable()
-                    .ignoresSafeArea()
-                
-                VStack {
-                    Spacer()
-                    
-                    // The button changes accoring to the state of isScanning
-                    Button(isScanning ? "Done" : "View 2D Map") {
-                        if isScanning {
-                            stopSession()
-                        } else {
-                            print("Present 2D Map")
-                        }
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .padding(.bottom)
-                }
-            }
+        ZStack {
+            // The RoomCaptureView
+            RoomCaptureRepresentable()
+                .ignoresSafeArea()
             
-            // Start the scan session when the view appears
-            .onAppear {
-                startSession()
+            VStack {
+                Spacer()
+                
+                // The button changes accoring to the state of isScanning
+                Button(isScanning ? "Done" : "View 2D floor plan") {
+                    if isScanning {
+                        stopSession()
+                    } else {
+                        print("Present 2D floor plan")
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(.bottom)
             }
+        }
+        
+        // Start the scan session when the view appears
+        .onAppear {
+            startSession()
         }
     }
     

@@ -8,17 +8,20 @@
 import Foundation
 import RoomPlan
 
-class RoomCaptureModel: RoomCaptureViewDelegate {
+class RoomCaptureModel: RoomCaptureSessionDelegate {
     
     // Singleton
     static let shared = RoomCaptureModel()
     
-    // RoomCapture properties
+    // The capture view
     let roomCaptureView: RoomCaptureView
-    private let captureSessionConfig: RoomCaptureSession.Configuration
     
-    // This will store our final scan results
-    var finalResults: CapturedRoom?
+    // Capture and room builder configuration
+    private let captureSessionConfig: RoomCaptureSession.Configuration
+    private let roomBuilder: RoomBuilder
+    
+    // The final scan result
+    var finalRoom: CapturedRoom?
     
     // Required functions to conform to NSCoding protocol
     func encode(with coder: NSCoder) {
@@ -32,6 +35,9 @@ class RoomCaptureModel: RoomCaptureViewDelegate {
     private init() {
         roomCaptureView = RoomCaptureView(frame: .zero)
         captureSessionConfig = RoomCaptureSession.Configuration()
+        roomBuilder = RoomBuilder(options: [.beautifyObjects])
+        
+        roomCaptureView.captureSession.delegate = self
     }
         
     // Start and stop the capture session. Available from our RoomCaptureScanView.
@@ -42,15 +48,20 @@ class RoomCaptureModel: RoomCaptureViewDelegate {
     func stopSession() {
         roomCaptureView.captureSession.stop()
     }
-
-    // Decide to post-process and show the final results.
-    func captureView(shouldPresent roomDataForProcessing: CapturedRoomData, error: Error?) -> Bool {
-        return true
-    }
     
-    // Access the final post-processed results.
-    func captureView(didPresent processedResult: CapturedRoom, error: Error?) {
-        finalResults = processedResult
+    // This method will be called
+    func captureSession(
+        _ session: RoomCaptureSession,
+        didEndWith data: CapturedRoomData,
+        error: Error?
+    ) {
+        if let error {
+            print("Error ending capture session; \(error)")
+        }
+        
+        Task {
+            finalRoom = try! await roomBuilder.capturedRoom(from: data)
+        }
     }
     
 }
