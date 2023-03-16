@@ -13,6 +13,7 @@ struct RoomCaptureScanView: View {
     private let model = RoomCaptureModel.shared
     
     @State private var isScanning = false
+    @State private var isShowingFloorPlan = false
     
     // MARK: - View Body
     var body: some View {
@@ -29,10 +30,14 @@ struct RoomCaptureScanView: View {
                     if isScanning {
                         stopSession()
                     } else {
-                        print("Present 2D floor plan")
+                        isShowingFloorPlan = true
                     }
                 }
-                .buttonStyle(.borderedProminent)
+                .padding()
+                .background(Color("AccentColor"))
+                .foregroundColor(.white)
+                .clipShape(Capsule())
+                .fontWeight(.bold)
                 .padding(.bottom)
             }
         }
@@ -40,6 +45,12 @@ struct RoomCaptureScanView: View {
         // Start the scan session when the view appears
         .onAppear {
             startSession()
+        }
+        
+        // Show the floor plan in full screen
+        .fullScreenCover(isPresented: $isShowingFloorPlan) {
+            SpriteView(scene: FloorPlanScene(capturedRoom: model.finalRoom!))
+                .ignoresSafeArea()
         }
     }
     

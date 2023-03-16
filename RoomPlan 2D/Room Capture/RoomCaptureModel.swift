@@ -49,7 +49,7 @@ class RoomCaptureModel: RoomCaptureSessionDelegate {
         roomCaptureView.captureSession.stop()
     }
     
-    // This method will be called
+    // Create the final scan result: a CapturedRoom object
     func captureSession(
         _ session: RoomCaptureSession,
         didEndWith data: CapturedRoomData,

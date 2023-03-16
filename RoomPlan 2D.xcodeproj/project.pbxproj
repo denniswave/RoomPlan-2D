@@ -14,6 +14,12 @@
 		95360D0E29A8E14500BDBED0 /* RoomCaptureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95360D0D29A8E14500BDBED0 /* RoomCaptureModel.swift */; };
 		95360D1029A8E59600BDBED0 /* RoomCaptureRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95360D0F29A8E59600BDBED0 /* RoomCaptureRepresentable.swift */; };
 		95360D1229A8E5DB00BDBED0 /* RoomCaptureScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95360D1129A8E5DB00BDBED0 /* RoomCaptureScanView.swift */; };
+		953FDAE229BAA0BD00A7AACF /* FloorPlanScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FDAE129BAA0BD00A7AACF /* FloorPlanScene.swift */; };
+		953FDAE429BAA1D900A7AACF /* simd_float4x4+EulerAnglesAndPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FDAE329BAA1D900A7AACF /* simd_float4x4+EulerAnglesAndPosition.swift */; };
+		953FDAE629BB8F3E00A7AACF /* CGPoint+RotateAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FDAE529BB8F3E00A7AACF /* CGPoint+RotateAround.swift */; };
+		953FDAE829BE14C900A7AACF /* FloorPlanSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FDAE729BE14C900A7AACF /* FloorPlanSurface.swift */; };
+		953FDAEA29BE251B00A7AACF /* DrawParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FDAE929BE251B00A7AACF /* DrawParameters.swift */; };
+		953FDAEC29BE2D9500A7AACF /* FloorPlanObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FDAEB29BE2D9500A7AACF /* FloorPlanObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		95360D0F29A8E59600BDBED0 /* RoomCaptureRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCaptureRepresentable.swift; sourceTree = "<group>"; };
 		95360D1129A8E5DB00BDBED0 /* RoomCaptureScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCaptureScanView.swift; sourceTree = "<group>"; };
 		95360D1329A8E84400BDBED0 /* RoomPlan-2D-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RoomPlan-2D-Info.plist"; sourceTree = SOURCE_ROOT; };
+		953FDAE129BAA0BD00A7AACF /* FloorPlanScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanScene.swift; sourceTree = "<group>"; };
+		953FDAE329BAA1D900A7AACF /* simd_float4x4+EulerAnglesAndPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+EulerAnglesAndPosition.swift"; sourceTree = "<group>"; };
+		953FDAE529BB8F3E00A7AACF /* CGPoint+RotateAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+RotateAround.swift"; sourceTree = "<group>"; };
+		953FDAE729BE14C900A7AACF /* FloorPlanSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanSurface.swift; sourceTree = "<group>"; };
+		953FDAE929BE251B00A7AACF /* DrawParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawParameters.swift; sourceTree = "<group>"; };
+		953FDAEB29BE2D9500A7AACF /* FloorPlanObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		950B7BE829C1236500B05CDF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				953FDAE529BB8F3E00A7AACF /* CGPoint+RotateAround.swift */,
+				953FDAE329BAA1D900A7AACF /* simd_float4x4+EulerAnglesAndPosition.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		95360CF329A8DC8700BDBED0 = {
 			isa = PBXGroup;
 			children = (
@@ -61,7 +82,9 @@
 				95360D1329A8E84400BDBED0 /* RoomPlan-2D-Info.plist */,
 				95360CFF29A8DC8700BDBED0 /* RoomPlan_2DApp.swift */,
 				95360D0129A8DC8700BDBED0 /* WelcomeView.swift */,
-				95360D1429B6954200BDBED0 /* RoomCapture */,
+				95360D1429B6954200BDBED0 /* Room Capture */,
+				953FDADF29BAA09000A7AACF /* Floor Plan */,
+				950B7BE829C1236500B05CDF /* Extensions */,
 				95360D0329A8DC8800BDBED0 /* Assets.xcassets */,
 				95360D0529A8DC8800BDBED0 /* Preview Content */,
 			);
@@ -76,14 +99,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		95360D1429B6954200BDBED0 /* RoomCapture */ = {
+		95360D1429B6954200BDBED0 /* Room Capture */ = {
 			isa = PBXGroup;
 			children = (
 				95360D0D29A8E14500BDBED0 /* RoomCaptureModel.swift */,
 				95360D0F29A8E59600BDBED0 /* RoomCaptureRepresentable.swift */,
 				95360D1129A8E5DB00BDBED0 /* RoomCaptureScanView.swift */,
 			);
-			path = RoomCapture;
+			path = "Room Capture";
+			sourceTree = "<group>";
+		};
+		953FDADF29BAA09000A7AACF /* Floor Plan */ = {
+			isa = PBXGroup;
+			children = (
+				953FDAE129BAA0BD00A7AACF /* FloorPlanScene.swift */,
+				953FDAE729BE14C900A7AACF /* FloorPlanSurface.swift */,
+				953FDAEB29BE2D9500A7AACF /* FloorPlanObject.swift */,
+				953FDAE929BE251B00A7AACF /* DrawParameters.swift */,
+			);
+			path = "Floor Plan";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,10 +190,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953FDAE429BAA1D900A7AACF /* simd_float4x4+EulerAnglesAndPosition.swift in Sources */,
+				953FDAEA29BE251B00A7AACF /* DrawParameters.swift in Sources */,
 				95360D0E29A8E14500BDBED0 /* RoomCaptureModel.swift in Sources */,
 				95360D0229A8DC8700BDBED0 /* WelcomeView.swift in Sources */,
+				953FDAE229BAA0BD00A7AACF /* FloorPlanScene.swift in Sources */,
+				953FDAE629BB8F3E00A7AACF /* CGPoint+RotateAround.swift in Sources */,
 				95360D1029A8E59600BDBED0 /* RoomCaptureRepresentable.swift in Sources */,
+				953FDAEC29BE2D9500A7AACF /* FloorPlanObject.swift in Sources */,
 				95360D0029A8DC8700BDBED0 /* RoomPlan_2DApp.swift in Sources */,
+				953FDAE829BE14C900A7AACF /* FloorPlanSurface.swift in Sources */,
 				95360D1229A8E5DB00BDBED0 /* RoomCaptureScanView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

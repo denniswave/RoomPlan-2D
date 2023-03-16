@@ -13,6 +13,7 @@ struct WelcomeView: View {
             Image(systemName: "house")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
+                .padding(.bottom, 8)
             
             Text("RoomPlan 2D")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -25,8 +26,12 @@ struct WelcomeView: View {
             NavigationLink("Start Scanning") {
                 RoomCaptureScanView()
             }
+            .padding()
+            .background(Color("AccentColor"))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            .fontWeight(.bold)
         }
-        .padding()
     }
 }
 
